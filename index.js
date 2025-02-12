@@ -160,7 +160,8 @@ function AnalysisFormula(formula){
         while(checkFormulaFormat('randf', formulaArray[block])) { //replace randf(...) to value
             let randfIndex = formulaArray[block].indexOf('randf');
             let randfPara = formulaArray[block].substring(formulaArray[block].indexOf('(', randfIndex)+1, formulaArray[block].indexOf(')', randfIndex)).replaceAll(' ','').split(",");
-            formulaArray[block] = replaceFromTo(formulaArray[block], randfIndex, formulaArray[block].indexOf(')', randfIndex) + 1, randf(parseFloat(randfPara[0]), parseFloat(randfPara[1]), parseInt(randfIndex[2])))
+            console.log(randfPara[2])
+            formulaArray[block] = replaceFromTo(formulaArray[block], randfIndex, formulaArray[block].indexOf(')', randfIndex) + 1, randf(parseFloat(randfPara[0]), parseFloat(randfPara[1]), Number(randfPara[2])))
         }
         while(checkFormulaFormat('randl', formulaArray[block])) { //replace randl(...) to value
             let randlIndex = formulaArray[block].indexOf('randl');
